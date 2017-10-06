@@ -28,6 +28,7 @@ public class NewGameController implements Initializable {
     @FXML private ComboBox<String> raceBox;
     @FXML private TextArea raceDesc;
     
+    //Placeholders. Obviously this will contain real info later.
     String worgen = "Dog people or some shit, idk.";
     String draenei = "Space aliens.";
     String tauren = "Moo.";
@@ -36,11 +37,13 @@ public class NewGameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         raceDesc.setEditable(false);
+        //Will expand to include all races later.
         raceBox.getItems().setAll("Worgen", "Draenei", "Tauren");
 
     }    
     
     @FXML public void chooseRace() {
+        //When a race is selected, check what it is and set the description box.
         switch (raceBox.getValue()) {
             case "Worgen":
                 raceDesc.setText(worgen);
@@ -56,6 +59,7 @@ public class NewGameController implements Initializable {
                 break;
         }
     }
+    
     
     @FXML public void startGame(){
         
