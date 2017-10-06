@@ -38,6 +38,38 @@ public class Character {
     public void setRace(String race) {
         this.race = race;
     }
+
+    public Float getFullness() {
+        return fullness;
+    }
+
+    public void setFullness(Float fullness) {
+        this.fullness = fullness;
+    }
+
+    public Float getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Float capacity) {
+        this.capacity = capacity;
+    }
+
+    public Float getHappiness() {
+        return happiness;
+    }
+
+    public void setHappiness(Float happiness) {
+        this.happiness = happiness;
+    }
+
+    public Float getSuspicion() {
+        return suspicion;
+    }
+
+    public void setSuspicion(Float suspicion) {
+        this.suspicion = suspicion;
+    }
     
     
     
