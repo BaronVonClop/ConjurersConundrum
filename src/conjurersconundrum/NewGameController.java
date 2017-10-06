@@ -86,7 +86,7 @@ public class NewGameController implements Initializable {
             alert.setHeaderText("Race not Selected");
             alert.setContentText("You must select a race before you begin the game.");
             alert.showAndWait();
-        } else{
+        } else {
             name = nameField.getText();
          Stage stage;
           Parent root;
