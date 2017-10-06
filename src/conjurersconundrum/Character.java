@@ -13,6 +13,10 @@ public class Character {
     
     private String name;
     private String race;
+    private Float fullness;
+    private Float capacity;
+    private Float happiness;
+    private Float suspicion;
     
     public Character(String name, String race){
         this.name = name;

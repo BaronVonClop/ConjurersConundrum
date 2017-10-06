@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -71,16 +73,31 @@ public class NewGameController implements Initializable {
     
     @FXML
     private void startGame(ActionEvent event) throws Exception{   
-        name = nameField.getText();
-        Stage stage;
-        Parent root;
         
-        stage=(Stage) startGame.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("Play.fxml"));
+        if(nameField.getText().trim().isEmpty()){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Name is Blank");
+            alert.setContentText("You must name your character before you can begin the game.");
+            alert.showAndWait();
+        } else if(raceBox.getValue() == null){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Race not Selected");
+            alert.setContentText("You must select a race before you begin the game.");
+            alert.showAndWait();
+        } else{
+            name = nameField.getText();
+         Stage stage;
+          Parent root;
         
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            stage=(Stage) startGame.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Play.fxml"));
+        
+           Scene scene = new Scene(root);
+          stage.setScene(scene);
+           stage.show();
+        }
     }
     
 }
