@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package conjurersconundrum;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,6 +52,7 @@ public class PlayController implements Initializable {
         dayLabel.setText("Day: " + day);
         //Populate the Order selection box.
         ordersBox.getItems().setAll("Rest", "Laze", "Quest");
+        System.out.println(Foods.eggsAndBacon.getCalories());
     }    
     
     //Open food window when Feed button is pressed.
@@ -68,5 +66,6 @@ public class PlayController implements Initializable {
         } catch(IOException e) {
           }
     }
+    
     
 }
