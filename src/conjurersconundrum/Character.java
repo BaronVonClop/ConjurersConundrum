@@ -13,10 +13,17 @@ public class Character {
     
     private String name;
     private String race;
-    private Float fullness;
-    private Float capacity;
-    private Float happiness;
-    private Float suspicion;
+    private double fullness = 25;
+    private double capacity = 100;
+    private double happiness = 75;
+    private double suspicion = 0;
+    private double weight = 160;
+    private double stamina = 100;
+    private double mana = 0;
+    private double researchDone;
+    private double researchRate;
+    private double digestionRate;
+    private double caloriesInGut;
     
     public Character(String name, String race){
         this.name = name;
@@ -39,37 +46,95 @@ public class Character {
         this.race = race;
     }
 
-    public Float getFullness() {
+    public double getFullness() {
         return fullness;
     }
 
-    public void setFullness(Float fullness) {
+    public void setFullness(double fullness) {
         this.fullness = fullness;
     }
 
-    public Float getCapacity() {
+    public double getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Float capacity) {
+    public void setCapacity(double capacity) {
         this.capacity = capacity;
     }
 
-    public Float getHappiness() {
+    public double getHappiness() {
         return happiness;
     }
 
-    public void setHappiness(Float happiness) {
+    public void setHappiness(double happiness) {
         this.happiness = happiness;
     }
 
-    public Float getSuspicion() {
+    public double getSuspicion() {
         return suspicion;
     }
 
-    public void setSuspicion(Float suspicion) {
+    public void setSuspicion(double suspicion) {
         this.suspicion = suspicion;
     }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getStamina() {
+        return stamina;
+    }
+
+    public void setStamina(double stamina) {
+        this.stamina = stamina;
+    }
+
+    public double getDigestionRate() {
+        return digestionRate;
+    }
+
+    public void setDigestionRate(double digestionRate) {
+        this.digestionRate = digestionRate;
+    }
+
+    public double getCaloriesInGut() {
+        return caloriesInGut;
+    }
+
+    public void setCaloriesInGut(double caloriesInGut) {
+        this.caloriesInGut = caloriesInGut;
+    }
+
+    public double getMana() {
+        return mana;
+    }
+
+    public void setMana(double mana) {
+        this.mana = mana;
+    }
+
+    public double getResearchDone() {
+        return researchDone;
+    }
+
+    public void setResearchDone(double researchDone) {
+        this.researchDone = researchDone;
+    }
+
+    public double getResearchRate() {
+        return researchRate;
+    }
+
+    public void setResearchRate(double researchRate) {
+        this.researchRate = researchRate;
+    }
+
+
     
     
     
