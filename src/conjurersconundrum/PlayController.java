@@ -2,8 +2,6 @@ package conjurersconundrum;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,27 +30,17 @@ public class PlayController implements Initializable {
     @FXML private ProgressBar manaBar;
     @FXML private ProgressBar researchBar;
     @FXML private Label dayLabel;
-    double time = 8;
-    int day = 1;
+     double time = 8;
+     int day = 1;
+
     
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Initialize the player character.
-        Character pc = new Character(NewGameController.race, NewGameController.name);
-        //Set progress bars.
-        timeBar.setProgress(time/24);
-        fullnessBar.setProgress(pc.getFullness()/100);
-        happinessBar.setProgress(pc.getHappiness()/100);
-        suspicionBar.setProgress(pc.getSuspicion()/100);
-        staminaBar.setProgress(pc.getStamina()/100);
-        researchBar.setProgress(pc.getResearchDone()/100);
-        manaBar.setProgress(pc.getMana()/100);
-        dayLabel.setText("Day: " + day);
         //Populate the Order selection box.
         ordersBox.getItems().setAll("Rest", "Laze", "Quest");
-        System.out.println(Foods.eggsAndBacon.getCalories());
+        updateBars();
     }    
     
     //Open food window when Feed button is pressed.
@@ -64,8 +52,29 @@ public class PlayController implements Initializable {
             stage.setScene(new Scene(feed));
             stage.show();
         } catch(IOException e) {
+            System.out.println(e);
           }
     }
     
+    public void updateBars(){
+        //Updates all the main screen bars when called.
+        
+        timeBar.setProgress(time/24);
+        fullnessBar.setProgress(CC.pc.getFullness()/100);
+        happinessBar.setProgress(CC.pc.getHappiness()/100);
+        suspicionBar.setProgress(CC.pc.getSuspicion()/100);
+        staminaBar.setProgress(CC.pc.getStamina()/100);
+        researchBar.setProgress(CC.pc.getResearchDone()/100);
+        manaBar.setProgress(CC.pc.getMana()/100);
+        dayLabel.setText("Day: " + day);
+        
+        System.out.print("Fullness Bar Progress:" + fullnessBar.getProgress());
+        
+}
     
+    public void feed(Character pc, Food food){
+        pc.setFullness(pc.getFullness() + food.getSize());
+    }    
+    
+  
 }

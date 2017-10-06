@@ -88,6 +88,9 @@ public class NewGameController implements Initializable {
             alert.showAndWait();
         } else {
             name = nameField.getText();
+            
+            CC.CreateCharacter(name, race);
+            
          Stage stage;
           Parent root;
         
@@ -97,6 +100,8 @@ public class NewGameController implements Initializable {
            Scene scene = new Scene(root);
           stage.setScene(scene);
            stage.show();
+           
+           
         }
     }
     
