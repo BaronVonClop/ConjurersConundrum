@@ -5,16 +5,19 @@
  */
 package conjurersconundrum;
 
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -23,8 +26,8 @@ import javafx.scene.control.TextField;
  */
 public class NewGameController implements Initializable {
     
-    @FXML private TextField NameField;
-    @FXML private Button StartGame;
+    @FXML private TextField nameField;
+    @FXML private Button startGame;
     @FXML private ComboBox<String> raceBox;
     @FXML private TextArea raceDesc;
     
@@ -32,6 +35,9 @@ public class NewGameController implements Initializable {
     String worgen = "Dog people or some shit, idk.";
     String draenei = "Space aliens.";
     String tauren = "Moo.";
+    
+    static String name;
+    static String race;
     
 
     @Override
@@ -47,12 +53,15 @@ public class NewGameController implements Initializable {
         switch (raceBox.getValue()) {
             case "Worgen":
                 raceDesc.setText(worgen);
+                race = "worgen";
                 break;
             case "Draenei":
                 raceDesc.setText(draenei);
+                race = "draenei";
                 break;
             case "Tauren":
                 raceDesc.setText(tauren);
+                race = "tauren";
                 break;
             default:
                 raceDesc.setText("Shouldn't see this. If you do, file a bug report on the forums.");
@@ -60,9 +69,18 @@ public class NewGameController implements Initializable {
         }
     }
     
-    
-    @FXML public void startGame(){
+    @FXML
+    private void startGame(ActionEvent event) throws Exception{   
+        name = nameField.getText();
+        Stage stage;
+        Parent root;
         
+        stage=(Stage) startGame.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("Play.fxml"));
+        
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
 }
