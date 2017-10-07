@@ -3,6 +3,10 @@ package conjurersconundrum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +27,7 @@ public class PlayController implements Initializable {
     
     @FXML private ComboBox<String> ordersBox;
     @FXML private ProgressBar timeBar;
-    @FXML private ProgressBar fullnessBar;
+    @FXML ProgressBar fullnessBar;
     @FXML private ProgressBar happinessBar;
     @FXML private ProgressBar suspicionBar;
     @FXML private ProgressBar staminaBar;
@@ -32,7 +36,8 @@ public class PlayController implements Initializable {
     @FXML private Label dayLabel;
      double time = 8;
      int day = 1;
-
+     
+    static DoubleProperty fullnessUpdater = new SimpleDoubleProperty(.25);
     
 
 
@@ -40,7 +45,8 @@ public class PlayController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //Populate the Order selection box.
         ordersBox.getItems().setAll("Rest", "Laze", "Quest");
-        updateBars();
+        fullnessBar.progressProperty().bind(fullnessUpdater);
+        System.out.print("Fullness Bar Progress on Init:" + fullnessBar.getProgress() + "\n");
     }    
     
     //Open food window when Feed button is pressed.
@@ -57,20 +63,14 @@ public class PlayController implements Initializable {
     }
     
     public void updateBars(){
-        //Updates all the main screen bars when called.
         
-        timeBar.setProgress(time/24);
-        fullnessBar.setProgress(CC.pc.getFullness()/100);
-        happinessBar.setProgress(CC.pc.getHappiness()/100);
-        suspicionBar.setProgress(CC.pc.getSuspicion()/100);
-        staminaBar.setProgress(CC.pc.getStamina()/100);
-        researchBar.setProgress(CC.pc.getResearchDone()/100);
-        manaBar.setProgress(CC.pc.getMana()/100);
-        dayLabel.setText("Day: " + day);
-        
-        System.out.print("Fullness Bar Progress:" + fullnessBar.getProgress());
+        fullnessUpdater.set(CC.pc.getFullness()/100);
         
 }
+    
+
+    
+    
     
     public void feed(Character pc, Food food){
         pc.setFullness(pc.getFullness() + food.getSize());
