@@ -9,7 +9,13 @@ public class CC {
     //Calling a second time will ERASE THE PLAYER CHARACTER.
     //There's probably a way to make this only callable once, but I don't know what it is so OOPS.
     public static void CreateCharacter(String name, String race){
-    pc = new Character(name, race);
+         pc = new Character(name, race);
+         if(race.equals("tauren")){
+             pc.setBaseWeight(250);
+             pc.setWeight(250);
+             pc.setCapacity(130);
+             pc.setDigestionRate(5.50);
+        }
     }
     //Used to feed the character. Simply pass in a Food.
     //TODO: Suspicion for certain foods; for example, the character would be weirded out by chugging a bucket of lard!

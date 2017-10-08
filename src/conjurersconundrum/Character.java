@@ -1,9 +1,8 @@
 package conjurersconundrum;
 
-//This is the class for the character to be fattened up. Any of the character's stats should be held in this class.
-
 import java.text.DecimalFormat;
 
+//This is the class for the character to be fattened up. Any of the character's stats should be held in this class.
 //Even though storywise it is the player, not the character, who does the magic/research, those are stored here
 //because there is no technical reason to make a seperate character.
 public class Character {
@@ -30,6 +29,7 @@ public class Character {
     public Character(String name, String race){
         this.name = name;
         this.race = race;
+        
     }
 
     public String getName() {
@@ -186,6 +186,7 @@ public class Character {
         this.day = day;
     }
     
+    //Generates day as a string for the label on the Play screen.
     public String dayString(){
          String formattedDay = "Day: " + this.day;
          return formattedDay;

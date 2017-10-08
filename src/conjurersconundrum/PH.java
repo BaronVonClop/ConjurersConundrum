@@ -10,7 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class PH {
-    static DoubleProperty fullnessUpdater = new SimpleDoubleProperty(CC.pc.getFullness());
+    static DoubleProperty fullnessUpdater = new SimpleDoubleProperty(CC.pc.getFullness()/CC.pc.getCapacity());
     static DoubleProperty happinessUpdater = new SimpleDoubleProperty(CC.pc.getHappiness());
     static DoubleProperty suspicionUpdater = new SimpleDoubleProperty(CC.pc.getSuspicion());
     static DoubleProperty staminaUpdater = new SimpleDoubleProperty(CC.pc.getStamina());
