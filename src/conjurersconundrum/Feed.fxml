@@ -6,43 +6,49 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="conjurersconundrum.FeedController">
-  <tabs>
-    <Tab text="Breakfast">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="657.0">
-               <children>
-                  <Button id="eggsAndBacon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#load" text="Eggs and Bacon" />
-                  <Button id="heavyCream" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#load" text="Pint of Heavy Cream" />
-                  <Button layoutX="14.0" layoutY="85.0" mnemonicParsing="false" text="Steak and Eggs" />
-                  <Label fx:id="nameLabel" layoutX="284.0" layoutY="155.0" text="Name" />
-                  <Label fx:id="fullnessLabel" layoutX="279.0" layoutY="172.0" text="Fullness" />
-                  <Label fx:id="happinessLabel" layoutX="273.0" layoutY="189.0" text="Happiness" />
-                  <Button fx:id="feedButton" layoutX="279.0" layoutY="288.0" mnemonicParsing="false" onAction="#feed" text="Feed" />
-                  <Label fx:id="happinessLabel1" layoutX="275.0" layoutY="206.0" text="Suspicion" />
-                  <TextArea fx:id="foodDesc" editable="false" layoutX="200.0" layoutY="223.0" prefHeight="64.0" prefWidth="200.0" />
-               </children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Lunch">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
-      <Tab text="Dinner">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="Desserts">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="Other">
-         <content>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-         </content>
-      </Tab>
-  </tabs>
-</TabPane>
+
+<AnchorPane prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="conjurersconundrum.FeedController">
+   <children>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Breakfast">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="600.0">
+                     <children>
+                        <Button id="eggsAndBacon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#load" text="Eggs and Bacon" />
+                        <Button id="heavyCream" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#load" text="Pint of Heavy Cream" />
+                        <Button layoutX="14.0" layoutY="85.0" mnemonicParsing="false" text="Steak and Eggs" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Lunch">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Dinner">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Desserts">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Other">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="feedButton" layoutX="265.0" layoutY="353.0" mnemonicParsing="false" onAction="#feed" text="Feed" />
+      <TextArea fx:id="foodDesc" editable="false" layoutX="186.0" layoutY="245.0" prefHeight="108.0" prefWidth="200.0" />
+      <Label fx:id="nameLabel" layoutX="79.0" layoutY="246.0" text="Name" />
+      <Label fx:id="fullnessLabel" layoutX="75.0" layoutY="270.0" text="Fullness" />
+      <Label fx:id="happinessLabel" layoutX="69.0" layoutY="290.0" text="Happiness" />
+      <Label fx:id="suspicionLabel" layoutX="74.0" layoutY="313.0" text="Suspicion" />
+   </children>
+</AnchorPane>

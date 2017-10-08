@@ -24,8 +24,10 @@ public class FeedController implements Initializable {
         fullnessLabel.textProperty().bind(PH.fullnessLabelUpdater);
         happinessLabel.textProperty().bind(PH.happinessLabelUpdater);
         foodDesc.textProperty().bind(PH.foodDescUpdater);
+        foodDesc.setWrapText(true);
     }    
     
+    //Load the information about the food based on which button was pressed.
     @FXML private void load(ActionEvent event) throws Exception{
         Button button = (Button) event.getSource();
         String id = button.getId();
