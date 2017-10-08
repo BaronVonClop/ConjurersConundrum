@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class PlayController implements Initializable {
     
-    //Call ALL THE SHIT.
+    //Implement ALL THE SHIT.
     @FXML private ComboBox<String> ordersBox;
     @FXML private ProgressBar timeBar;
     @FXML private ProgressBar fullnessBar;
@@ -57,8 +57,13 @@ public class PlayController implements Initializable {
           }
     }
     
+    @FXML private void waitButton(ActionEvent event) throws Exception{
+         time += .5;
+         CC.digest();
+    }
+    
     //Update the Updaters which Update the bars. yes really.
-    public void updateBars(){
+    public static void updateBars(){
         PH.fullnessUpdater.set(CC.pc.getFullness());
         PH.happinessUpdater.set(CC.pc.getHappiness());
         PH.staminaUpdater.set(CC.pc.getStamina());

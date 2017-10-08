@@ -14,10 +14,11 @@ public class Character {
     private double weight = 160;
     private double stamina = 100;
     private double mana = 0;
-    private double researchDone;
-    private double researchRate;
-    private double digestionRate;
-    private double caloriesInGut;
+    private double researchDone = 0;
+    private double researchRate = 0;
+    private double digestionRate = 8.5;
+    private double caloriesInGut = 500;
+    private double caloriesDigested = 0;
     
     public Character(String name, String race){
         this.name = name;
@@ -86,6 +87,10 @@ public class Character {
 
     public void setStamina(double stamina) {
         this.stamina = stamina;
+        //Block Stamina from going over 100.
+        if(this.stamina > 100){
+            this.stamina = 100;
+        }
     }
 
     public double getDigestionRate() {
@@ -126,6 +131,14 @@ public class Character {
 
     public void setResearchRate(double researchRate) {
         this.researchRate = researchRate;
+    }
+
+    public double getCaloriesDigested() {
+        return caloriesDigested;
+    }
+
+    public void setCaloriesDigested(double caloriesDigested) {
+        this.caloriesDigested = caloriesDigested;
     }
 
     

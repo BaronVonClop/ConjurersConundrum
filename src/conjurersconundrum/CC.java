@@ -31,5 +31,17 @@ public class CC {
          pc.setCaloriesInGut(pc.getCaloriesInGut() + food.getCalories());
          //no calorie bar, so no updater here
     }
+    
+    public static void digest(){
+         double digested = pc.getCaloriesInGut()/pc.getDigestionRate();
+         pc.setFullness(pc.getFullness() - pc.getDigestionRate());
+         pc.setCaloriesInGut(pc.getCaloriesInGut() - digested);
+         pc.setCaloriesDigested(pc.getCaloriesDigested() + digested);
+         PlayController.updateBars();
+    }
+    
+    public static void gainWeight(){
+        //TODO: calculate caloriesDigested
+    }
 }
 
