@@ -12,8 +12,8 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#feedEggsAndBacon" text="Eggs and Bacon" />
-                  <Button layoutX="14.0" layoutY="49.0" mnemonicParsing="false" text="Pint of Heavy Cream" />
+                  <Button id="eggsAndBacon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#feed" text="Eggs and Bacon" />
+                  <Button id="heavyCream" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#feed" text="Pint of Heavy Cream" />
                   <Button layoutX="14.0" layoutY="85.0" mnemonicParsing="false" text="Steak and Eggs" />
                </children></AnchorPane>
       </content>

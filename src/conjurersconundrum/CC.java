@@ -12,12 +12,15 @@ public class CC {
     pc = new Character(name, race);
 }
     //Used to feed the character. Simply pass in a Food.
-    //TODO: Suspicion for certain foods, Stamina gained/lost based on what was eaten.
+    //TODO: Suspicion for certain foods; for example, the character would be weirded out by chugging a bucket of lard!
+    //TODO: Stamina for certain foods. Cramming five cakes into your adventurer would make them quite sluggish...
     public static void feed(Food food){
+        System.out.println("Feeding character "+ food);
          pc.setFullness(pc.getFullness() + food.getSize());
          PH.fullnessUpdater.set(pc.getFullness());
          pc.setHappiness(pc.getHappiness() + food.getHappinessAlteration());
          PH.happinessUpdater.set(pc.getHappiness());
+         System.out.println("Successfully fed character "+ food);
         }
     }
 
