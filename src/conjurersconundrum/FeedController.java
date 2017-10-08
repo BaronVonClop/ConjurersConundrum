@@ -23,9 +23,4 @@ public class FeedController implements Initializable {
         else if("heavyCream".equals(id)){CC.feed(Foods.heavyCream);}
         
     }
-    
-    @FXML private void feedEggsAndBacon(ActionEvent event) throws Exception{
-        CC.feed(Foods.eggsAndBacon);
-        
-    }
 }
