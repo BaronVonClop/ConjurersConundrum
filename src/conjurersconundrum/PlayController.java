@@ -35,7 +35,8 @@ public class PlayController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          //Populate the Order selection box.
-         ordersBox.getItems().setAll("Rest", "Laze", "Quest");
+         ordersBox.getItems().setAll("Rest", "Laze", "Quest", "Work Out");
+         ordersBox.getSelectionModel().select("Work Out");
          //Bind the bars to their updaters
          fullnessBar.progressProperty().bind(PH.fullnessUpdater);
          happinessBar.progressProperty().bind(PH.happinessUpdater.divide(100d));
@@ -67,14 +68,16 @@ public class PlayController implements Initializable {
              CC.pc.setTime(0);
              CC.pc.setDay(CC.pc.getDay() + 1);
          }
+         String orderSelect = ordersBox.getSelectionModel().getSelectedItem();
+         CC.orderMod(orderSelect);
          CC.digest();
          CC.gainWeight();
          //Debug strings.
-//         System.out.println("Cal In Gut: " + CC.pc.getCaloriesInGut());
-//         System.out.println("Cal Digested: " + CC.pc.getCaloriesDigested());
-//         System.out.println("Weight Gained: " + CC.pc.getWeightGained());
-//         System.out.println("Time: " + CC.pc.getTime());
-//         System.out.println("Base Weight: " + CC.pc.getBaseWeight());
+         System.out.println("Cal In Gut: " + CC.pc.getCaloriesInGut());
+         System.out.println("Cal Digested: " + CC.pc.getCaloriesDigested());
+         System.out.println("Weight Gained: " + CC.pc.getWeightGained());
+         System.out.println("Time: " + CC.pc.getTime());
+         System.out.println("Base Weight: " + CC.pc.getBaseWeight());
          System.out.println("Capacity: " + CC.pc.getCapacity());
          System.out.println("Digestion Rate: " + CC.pc.getDigestionRate());
          System.out.println("Fullness: " + CC.pc.getFullness());

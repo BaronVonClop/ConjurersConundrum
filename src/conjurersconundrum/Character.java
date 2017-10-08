@@ -25,6 +25,7 @@ public class Character {
     private double caloriesDigested = 0;
     private double time = 8;
     private int day = 1;
+    private double digestionBonus = 0;
     
     public Character(String name, String race){
         this.name = name;
@@ -55,6 +56,7 @@ public class Character {
     public void setFullness(double fullness) {
         this.fullness = fullness;
         //Block fullness from going under zero
+        //In the future, a fullness > 100 will incur heavy happiness penalties due to the pain
         if(this.fullness < 0){
             this.fullness = 0;
         }
@@ -82,6 +84,13 @@ public class Character {
 
     public void setSuspicion(double suspicion) {
         this.suspicion = suspicion;
+        //Add a floor and a ceiling for suspicion
+        //In the future, a suspicion > 100 will trigger a game over
+        if(this.suspicion > 100){
+            this.suspicion = 100;
+        } else if(this.suspicion < 0){
+            this.suspicion = 0;
+        }
     }
 
     public double getWeight() {
@@ -185,6 +194,16 @@ public class Character {
     public void setDay(int day) {
         this.day = day;
     }
+
+    public double getDigestionBonus() {
+        return digestionBonus;
+    }
+
+    public void setDigestionBonus(double digestionBonus) {
+        this.digestionBonus = digestionBonus;
+    }
+    
+    
     
     //Generates day as a string for the label on the Play screen.
     public String dayString(){
