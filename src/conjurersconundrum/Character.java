@@ -1,6 +1,9 @@
 package conjurersconundrum;
 
 //This is the class for the character to be fattened up. Any of the character's stats should be held in this class.
+
+import java.text.DecimalFormat;
+
 //Even though storywise it is the player, not the character, who does the magic/research, those are stored here
 //because there is no technical reason to make a seperate character.
 public class Character {
@@ -11,7 +14,9 @@ public class Character {
     private double capacity = 100;
     private double happiness = 75;
     private double suspicion = 0;
-    private double weight = 160;
+    private double baseWeight = 160;
+    private double weight = baseWeight;
+    private double weightGained = 0;
     private double stamina = 100;
     private double mana = 0;
     private double researchDone = 0;
@@ -47,6 +52,10 @@ public class Character {
 
     public void setFullness(double fullness) {
         this.fullness = fullness;
+        //Block fullness from going under zero
+        if(this.fullness < 0){
+            this.fullness = 0;
+        }
     }
 
     public double getCapacity() {
@@ -87,9 +96,11 @@ public class Character {
 
     public void setStamina(double stamina) {
         this.stamina = stamina;
-        //Block Stamina from going over 100.
+        //Block Stamina from going over 100 or below 0.
         if(this.stamina > 100){
             this.stamina = 100;
+        } else if(this.stamina < 0){
+            this.stamina = 0;
         }
     }
 
@@ -141,6 +152,29 @@ public class Character {
         this.caloriesDigested = caloriesDigested;
     }
 
+    public double getBaseWeight() {
+        return baseWeight;
+    }
+
+    public void setBaseWeight(double baseWeight) {
+        this.baseWeight = baseWeight;
+    }
+
+    public double getWeightGained() {
+        return weightGained;
+    }
+
+    public void setWeightGained(double weightGained) {
+        this.weightGained = weightGained;
+    }
     
+    //Generates character's weight as a string, for the weight indicator
+    public String weightString(){
+         //Grab weight, format it to 2 decimal places, display it
+         double fatIdiot = this.weight;
+         DecimalFormat twoPlaces = new DecimalFormat("#.##");
+         String weightToSend = "" + twoPlaces.format(fatIdiot);
+         return weightToSend; 
+    }
     
 }

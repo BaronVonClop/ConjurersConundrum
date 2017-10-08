@@ -10,7 +10,7 @@ public class CC {
     //There's probably a way to make this only callable once, but I don't know what it is so OOPS.
     public static void CreateCharacter(String name, String race){
     pc = new Character(name, race);
-}
+    }
     //Used to feed the character. Simply pass in a Food.
     //TODO: Suspicion for certain foods; for example, the character would be weirded out by chugging a bucket of lard!
     //TODO: Stamina for certain foods. Cramming five cakes into your adventurer would make them quite sluggish...
@@ -41,7 +41,8 @@ public class CC {
     }
     
     public static void gainWeight(){
-        //TODO: calculate caloriesDigested
+         pc.setWeightGained(pc.getCaloriesDigested()/3500d);
+         pc.setWeight(pc.getBaseWeight() + pc.getWeightGained());
     }
 }
 

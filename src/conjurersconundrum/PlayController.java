@@ -28,6 +28,7 @@ public class PlayController implements Initializable {
     @FXML private ProgressBar manaBar;
     @FXML private ProgressBar researchBar;
     @FXML private Label dayLabel;
+    @FXML private Label weightLabel;
      double time = 8;
      int day = 1;
     
@@ -42,6 +43,7 @@ public class PlayController implements Initializable {
          happinessBar.progressProperty().bind(PH.happinessUpdater.divide(100d));
          suspicionBar.progressProperty().bind(PH.suspicionUpdater.divide(100d));
          staminaBar.progressProperty().bind(PH.staminaUpdater.divide(100d));
+         weightLabel.textProperty().bind(PH.weightUpdater);
     }    
     
     //Open food window when Feed button is pressed.
@@ -60,6 +62,10 @@ public class PlayController implements Initializable {
     @FXML private void waitButton(ActionEvent event) throws Exception{
          time += .5;
          CC.digest();
+         CC.gainWeight();
+         System.out.println("Cal In Gut: " + CC.pc.getCaloriesInGut());
+         System.out.println("Cal Digested: " + CC.pc.getCaloriesDigested());
+         System.out.println("Weight Gained: " + CC.pc.getWeightGained());
     }
     
     //Update the Updaters which Update the bars. yes really.
@@ -68,5 +74,7 @@ public class PlayController implements Initializable {
         PH.happinessUpdater.set(CC.pc.getHappiness());
         PH.staminaUpdater.set(CC.pc.getStamina());
         PH.suspicionUpdater.set(CC.pc.getSuspicion());
-}
+        PH.weightUpdater.set("Weight: " + CC.pc.weightString());
+        
+    }
 }
