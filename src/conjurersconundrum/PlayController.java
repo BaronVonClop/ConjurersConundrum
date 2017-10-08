@@ -35,11 +35,13 @@ public class PlayController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Populate the Order selection box.
-        ordersBox.getItems().setAll("Rest", "Laze", "Quest");
-        //Bind the bars to their updaters
-        fullnessBar.progressProperty().bind(PH.fullnessUpdater.divide(100d));
-        happinessBar.progressProperty().bind(PH.happinessUpdater.divide(100d));
+         //Populate the Order selection box.
+         ordersBox.getItems().setAll("Rest", "Laze", "Quest");
+         //Bind the bars to their updaters
+         fullnessBar.progressProperty().bind(PH.fullnessUpdater.divide(100d));
+         happinessBar.progressProperty().bind(PH.happinessUpdater.divide(100d));
+         suspicionBar.progressProperty().bind(PH.suspicionUpdater.divide(100d));
+         staminaBar.progressProperty().bind(PH.staminaUpdater.divide(100d));
     }    
     
     //Open food window when Feed button is pressed.
@@ -59,5 +61,7 @@ public class PlayController implements Initializable {
     public void updateBars(){
         PH.fullnessUpdater.set(CC.pc.getFullness());
         PH.happinessUpdater.set(CC.pc.getHappiness());
+        PH.staminaUpdater.set(CC.pc.getStamina());
+        PH.suspicionUpdater.set(CC.pc.getSuspicion());
 }
 }

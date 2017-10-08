@@ -16,11 +16,11 @@ public class FeedController implements Initializable {
     //Check for the ID of the button. Feed food based on the ID. Button ID must correspond with the exact name of a
     //food item in Foods.
     @FXML private void feed(ActionEvent event) throws Exception{
+        
         Button button = (Button) event.getSource();
         String id = button.getId();
         
         if ("eggsAndBacon".equals(id)) {CC.feed(Foods.eggsAndBacon);}
         else if("heavyCream".equals(id)){CC.feed(Foods.heavyCream);}
-        
     }
 }

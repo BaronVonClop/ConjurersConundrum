@@ -5,13 +5,16 @@ public class Food {
     private double size;
     private double suspicionAlteration;
     private double happinessAlteration;
+    private double staminaAlteration;
     private double fanciness;
     
-    public Food(double calories, double size, double suspicionAlteration, double happinessAlteration, double fanciness){
+    public Food(double calories, double size, double suspicionAlteration, double happinessAlteration, 
+            double staminaAlteration, double fanciness){
         this.calories = calories;
         this.size = size;
         this.suspicionAlteration = suspicionAlteration;
         this.happinessAlteration = happinessAlteration;
+        this.staminaAlteration = staminaAlteration;
         this.fanciness = fanciness;
     }
 
@@ -54,6 +57,14 @@ public class Food {
     public void setFanciness(double fanciness) {
         this.fanciness = fanciness;
     }
+
+    public double getStaminaAlteration() {
+        return staminaAlteration;
+    }
+
+    public void setStaminaAlteration(double staminaAlteration) {
+        this.staminaAlteration = staminaAlteration;
+    }
     
-    
+
 }
