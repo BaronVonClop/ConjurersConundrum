@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +25,7 @@ public class PlayController implements Initializable {
     
     @FXML private ComboBox<String> ordersBox;
     @FXML private ProgressBar timeBar;
-    @FXML ProgressBar fullnessBar;
+    @FXML private ProgressBar fullnessBar;
     @FXML private ProgressBar happinessBar;
     @FXML private ProgressBar suspicionBar;
     @FXML private ProgressBar staminaBar;
@@ -36,8 +34,6 @@ public class PlayController implements Initializable {
     @FXML private Label dayLabel;
      double time = 8;
      int day = 1;
-     
-    static DoubleProperty fullnessUpdater = new SimpleDoubleProperty(.25);
     
 
 
@@ -45,8 +41,9 @@ public class PlayController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //Populate the Order selection box.
         ordersBox.getItems().setAll("Rest", "Laze", "Quest");
-        fullnessBar.progressProperty().bind(fullnessUpdater);
-        System.out.print("Fullness Bar Progress on Init:" + fullnessBar.getProgress() + "\n");
+        //Bind the bars to their updaters
+        fullnessBar.progressProperty().bind(PH.fullnessUpdater.divide(100d));
+        happinessBar.progressProperty().bind(PH.happinessUpdater.divide(100d));
     }    
     
     //Open food window when Feed button is pressed.
@@ -62,9 +59,11 @@ public class PlayController implements Initializable {
           }
     }
     
+    //Update the Updaters which Update the bars. yes really.
     public void updateBars(){
         
-        fullnessUpdater.set(CC.pc.getFullness()/100);
+        PH.fullnessUpdater.set(CC.pc.getFullness());
+        PH.happinessUpdater.set(CC.pc.getHappiness());
         
 }
     
