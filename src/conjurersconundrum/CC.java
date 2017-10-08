@@ -11,7 +11,8 @@ public class CC {
     public static void CreateCharacter(String name, String race){
     pc = new Character(name, race);
 }
-    
+    //Used to feed the character. Simply pass in a Food.
+    //TODO: Suspicion for certain foods, Stamina gained/lost based on what was eaten.
     public static void feed(Food food){
          pc.setFullness(pc.getFullness() + food.getSize());
          PH.fullnessUpdater.set(pc.getFullness());

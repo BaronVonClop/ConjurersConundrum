@@ -3,8 +3,6 @@ package conjurersconundrum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,13 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Baron
- */
+//This controller is used for the main screen of the game once started.
+
 public class PlayController implements Initializable {
     
+    //Call ALL THE SHIT.
     @FXML private ComboBox<String> ordersBox;
     @FXML private ProgressBar timeBar;
     @FXML private ProgressBar fullnessBar;
@@ -61,19 +57,7 @@ public class PlayController implements Initializable {
     
     //Update the Updaters which Update the bars. yes really.
     public void updateBars(){
-        
         PH.fullnessUpdater.set(CC.pc.getFullness());
         PH.happinessUpdater.set(CC.pc.getHappiness());
-        
 }
-    
-
-    
-    
-    
-    public void feed(Character pc, Food food){
-        pc.setFullness(pc.getFullness() + food.getSize());
-    }    
-    
-  
 }

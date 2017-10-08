@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package conjurersconundrum;
 
 import java.net.URL;
@@ -21,11 +16,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Baron
- */
 public class NewGameController implements Initializable {
     
     @FXML private TextField nameField;

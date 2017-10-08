@@ -1,10 +1,8 @@
-
 package conjurersconundrum;
 
-/**
- *
- * @author Baron
- */
+//This is the class for the character to be fattened up. Any of the character's stats should be held in this class.
+//Even though storywise it is the player, not the character, who does the magic/research, those are stored here
+//because there is no technical reason to make a seperate character.
 public class Character {
     
     private String name;
