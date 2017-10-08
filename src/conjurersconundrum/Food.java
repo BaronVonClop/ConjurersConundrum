@@ -7,9 +7,11 @@ public class Food {
     private double happinessAlteration;
     private double staminaAlteration;
     private double fanciness;
+    private String name;
     
-    public Food(double calories, double size, double suspicionAlteration, double happinessAlteration, 
+    public Food(String name, double calories, double size, double suspicionAlteration, double happinessAlteration, 
             double staminaAlteration, double fanciness){
+        this.name = name;
         this.calories = calories;
         this.size = size;
         this.suspicionAlteration = suspicionAlteration;
@@ -65,6 +67,16 @@ public class Food {
     public void setStaminaAlteration(double staminaAlteration) {
         this.staminaAlteration = staminaAlteration;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
     
 
 }

@@ -6,15 +6,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="conjurersconundrum.FeedController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="conjurersconundrum.FeedController">
   <tabs>
     <Tab text="Breakfast">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="657.0">
                <children>
-                  <Button id="eggsAndBacon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#feed" text="Eggs and Bacon" />
-                  <Button id="heavyCream" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#feed" text="Pint of Heavy Cream" />
+                  <Button id="eggsAndBacon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#load" text="Eggs and Bacon" />
+                  <Button id="heavyCream" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#load" text="Pint of Heavy Cream" />
                   <Button layoutX="14.0" layoutY="85.0" mnemonicParsing="false" text="Steak and Eggs" />
+                  <Label fx:id="nameLabel" layoutX="286.0" layoutY="229.0" text="Label" />
+                  <Label fx:id="fullnessLabel" layoutX="286.0" layoutY="253.0" text="Label" />
+                  <Label fx:id="happinessLabel" layoutX="286.0" layoutY="278.0" text="Label" />
+                  <Button fx:id="feedButton" layoutX="274.0" layoutY="295.0" mnemonicParsing="false" onAction="#feed" text="Feed" />
                </children></AnchorPane>
       </content>
     </Tab>

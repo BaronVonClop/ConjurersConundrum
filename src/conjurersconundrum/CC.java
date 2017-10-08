@@ -18,20 +18,13 @@ public class CC {
         }
     }
     //Used to feed the character. Simply pass in a Food.
-    //TODO: Suspicion for certain foods; for example, the character would be weirded out by chugging a bucket of lard!
-    //TODO: Stamina for certain foods. Cramming five cakes into your adventurer would make them quite sluggish...
     public static void feed(Food food){
 
          pc.setFullness(pc.getFullness() + food.getSize());
-
          pc.setHappiness(pc.getHappiness() + food.getHappinessAlteration());
-
          pc.setSuspicion(pc.getSuspicion() + food.getSuspicionAlteration());
-
          pc.setStamina(pc.getStamina() + food.getStaminaAlteration());
-         
          pc.setCaloriesInGut(pc.getCaloriesInGut() + food.getCalories());
-
          PlayController.updateBars();
     }
     
@@ -43,7 +36,7 @@ public class CC {
             trueRate = pc.getDigestionRate() * pc.getDigestionBonus();
             digested = pc.getCaloriesInGut() / trueRate;
         }
-
+        //Calculate digestion. Reduce fullness, reduce stored calories, increase digested calories.
          pc.setFullness(pc.getFullness() - trueRate);
          pc.setCaloriesInGut(pc.getCaloriesInGut() - digested);
          pc.setCaloriesDigested(pc.getCaloriesDigested() + digested);
@@ -51,6 +44,7 @@ public class CC {
     }
     
     public static void gainWeight(){
+        //Calculate weight gain. Check the digested calories, divide it by 3500 (one pound), then add it to weight.
          pc.setWeightGained(pc.getCaloriesDigested()/3500d);
          pc.setWeight(pc.getBaseWeight() + pc.getWeightGained());
          PlayController.updateBars();

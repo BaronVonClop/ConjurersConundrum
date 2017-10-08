@@ -10,6 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class PH {
+    //Main screen holders
     static DoubleProperty fullnessUpdater = new SimpleDoubleProperty(CC.pc.calcFullness());
     static DoubleProperty happinessUpdater = new SimpleDoubleProperty(CC.pc.getHappiness());
     static DoubleProperty suspicionUpdater = new SimpleDoubleProperty(CC.pc.getSuspicion());
@@ -17,4 +18,9 @@ public class PH {
     static StringProperty weightUpdater = new SimpleStringProperty(CC.pc.weightString());
     static DoubleProperty timeUpdater = new SimpleDoubleProperty(CC.pc.getTime());
     static StringProperty dayUpdater = new SimpleStringProperty(CC.pc.dayString());
+    
+    //Feed label holders
+    static StringProperty feedNameUpdater = new SimpleStringProperty();
+    static StringProperty happinessLabelUpdater = new SimpleStringProperty();
+    static StringProperty fullnessLabelUpdater = new SimpleStringProperty();
 }
