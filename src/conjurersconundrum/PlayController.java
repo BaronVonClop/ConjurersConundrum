@@ -29,8 +29,6 @@ public class PlayController implements Initializable {
     @FXML private ProgressBar researchBar;
     @FXML private Label dayLabel;
     @FXML private Label weightLabel;
-     double time = 8;
-     int day = 1;
     
 
 
@@ -44,6 +42,8 @@ public class PlayController implements Initializable {
          suspicionBar.progressProperty().bind(PH.suspicionUpdater.divide(100d));
          staminaBar.progressProperty().bind(PH.staminaUpdater.divide(100d));
          weightLabel.textProperty().bind(PH.weightUpdater);
+         timeBar.progressProperty().bind(PH.timeUpdater.divide(24d));
+         dayLabel.textProperty().bind(PH.dayUpdater);
     }    
     
     //Open food window when Feed button is pressed.
@@ -60,12 +60,17 @@ public class PlayController implements Initializable {
     }
     
     @FXML private void waitButton(ActionEvent event) throws Exception{
-         time += .5;
+         CC.pc.setTime(CC.pc.getTime() + .5);
+         if(CC.pc.getTime() >= 24){
+             CC.pc.setTime(0);
+             CC.pc.setDay(CC.pc.getDay() + 1);
+         }
          CC.digest();
          CC.gainWeight();
          System.out.println("Cal In Gut: " + CC.pc.getCaloriesInGut());
          System.out.println("Cal Digested: " + CC.pc.getCaloriesDigested());
          System.out.println("Weight Gained: " + CC.pc.getWeightGained());
+         System.out.println("Time: " + CC.pc.getTime());
     }
     
     //Update the Updaters which Update the bars. yes really.
@@ -75,6 +80,7 @@ public class PlayController implements Initializable {
         PH.staminaUpdater.set(CC.pc.getStamina());
         PH.suspicionUpdater.set(CC.pc.getSuspicion());
         PH.weightUpdater.set("Weight: " + CC.pc.weightString());
-        
+        PH.timeUpdater.set(CC.pc.getTime());
+        PH.dayUpdater.set(CC.pc.dayString());
     }
 }

@@ -43,6 +43,7 @@ public class CC {
     public static void gainWeight(){
          pc.setWeightGained(pc.getCaloriesDigested()/3500d);
          pc.setWeight(pc.getBaseWeight() + pc.getWeightGained());
+         PlayController.updateBars();
     }
 }
 

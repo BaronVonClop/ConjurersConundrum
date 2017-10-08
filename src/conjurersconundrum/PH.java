@@ -15,4 +15,6 @@ public class PH {
     static DoubleProperty suspicionUpdater = new SimpleDoubleProperty(CC.pc.getSuspicion());
     static DoubleProperty staminaUpdater = new SimpleDoubleProperty(CC.pc.getStamina());
     static StringProperty weightUpdater = new SimpleStringProperty(CC.pc.weightString());
+    static DoubleProperty timeUpdater = new SimpleDoubleProperty(CC.pc.getTime());
+    static StringProperty dayUpdater = new SimpleStringProperty(CC.pc.dayString());
 }

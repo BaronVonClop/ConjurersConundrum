@@ -21,9 +21,11 @@ public class Character {
     private double mana = 0;
     private double researchDone = 0;
     private double researchRate = 0;
-    private double digestionRate = 8.5;
+    private double digestionRate = 6.25;
     private double caloriesInGut = 500;
     private double caloriesDigested = 0;
+    private double time = 8;
+    private int day = 1;
     
     public Character(String name, String race){
         this.name = name;
@@ -167,7 +169,28 @@ public class Character {
     public void setWeightGained(double weightGained) {
         this.weightGained = weightGained;
     }
+
+    public double getTime() {
+        return time;
+    }
+
+    public void setTime(double time) {
+        this.time = time;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
     
+    public String dayString(){
+         String formattedDay = "Day: " + this.day;
+         return formattedDay;
+    }
+            
     //Generates character's weight as a string, for the weight indicator
     public String weightString(){
          //Grab weight, format it to 2 decimal places, display it
