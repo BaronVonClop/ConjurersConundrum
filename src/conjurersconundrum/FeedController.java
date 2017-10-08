@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 
 public class FeedController implements Initializable {
@@ -15,12 +16,14 @@ public class FeedController implements Initializable {
     @FXML private Label fullnessLabel;
     @FXML private Label happinessLabel;
     @FXML private Button feedButton;
+    @FXML private TextArea foodDesc;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         nameLabel.textProperty().bind(PH.feedNameUpdater);
         fullnessLabel.textProperty().bind(PH.fullnessLabelUpdater);
         happinessLabel.textProperty().bind(PH.happinessLabelUpdater);
+        foodDesc.textProperty().bind(PH.foodDescUpdater);
     }    
     
     @FXML private void load(ActionEvent event) throws Exception{
@@ -35,6 +38,7 @@ public class FeedController implements Initializable {
         PH.feedNameUpdater.set(toLoad.getName());
         PH.fullnessLabelUpdater.set("Size: " + toLoad.getSize());
         PH.happinessLabelUpdater.set("Happiness: " + toLoad.getHappinessAlteration());
+        PH.foodDescUpdater.set(toLoad.getDesc());
     }
     
     

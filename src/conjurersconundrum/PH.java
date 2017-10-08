@@ -23,4 +23,5 @@ public class PH {
     static StringProperty feedNameUpdater = new SimpleStringProperty();
     static StringProperty happinessLabelUpdater = new SimpleStringProperty();
     static StringProperty fullnessLabelUpdater = new SimpleStringProperty();
+    static StringProperty foodDescUpdater = new SimpleStringProperty();
 }

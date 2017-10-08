@@ -15,10 +15,12 @@
                   <Button id="eggsAndBacon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#load" text="Eggs and Bacon" />
                   <Button id="heavyCream" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#load" text="Pint of Heavy Cream" />
                   <Button layoutX="14.0" layoutY="85.0" mnemonicParsing="false" text="Steak and Eggs" />
-                  <Label fx:id="nameLabel" layoutX="286.0" layoutY="229.0" text="Label" />
-                  <Label fx:id="fullnessLabel" layoutX="286.0" layoutY="253.0" text="Label" />
-                  <Label fx:id="happinessLabel" layoutX="286.0" layoutY="278.0" text="Label" />
-                  <Button fx:id="feedButton" layoutX="274.0" layoutY="295.0" mnemonicParsing="false" onAction="#feed" text="Feed" />
+                  <Label fx:id="nameLabel" layoutX="284.0" layoutY="155.0" text="Name" />
+                  <Label fx:id="fullnessLabel" layoutX="279.0" layoutY="172.0" text="Fullness" />
+                  <Label fx:id="happinessLabel" layoutX="273.0" layoutY="189.0" text="Happiness" />
+                  <Button fx:id="feedButton" layoutX="279.0" layoutY="288.0" mnemonicParsing="false" onAction="#feed" text="Feed" />
+                  <Label fx:id="happinessLabel1" layoutX="275.0" layoutY="206.0" text="Suspicion" />
+                  <TextArea fx:id="foodDesc" editable="false" layoutX="200.0" layoutY="223.0" prefHeight="64.0" prefWidth="200.0" />
                </children></AnchorPane>
       </content>
     </Tab>
