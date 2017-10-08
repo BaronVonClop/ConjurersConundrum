@@ -23,19 +23,16 @@ public class CC {
     public static void feed(Food food){
 
          pc.setFullness(pc.getFullness() + food.getSize());
-         PH.fullnessUpdater.set(pc.getFullness());
 
          pc.setHappiness(pc.getHappiness() + food.getHappinessAlteration());
-         PH.happinessUpdater.set(pc.getHappiness());
 
          pc.setSuspicion(pc.getSuspicion() + food.getSuspicionAlteration());
-         PH.suspicionUpdater.set(pc.getSuspicion());
 
          pc.setStamina(pc.getStamina() + food.getStaminaAlteration());
-         PH.staminaUpdater.set(pc.getStamina());
          
          pc.setCaloriesInGut(pc.getCaloriesInGut() + food.getCalories());
-         //no calorie bar, so no updater here
+
+         PlayController.updateBars();
     }
     
     public static void digest(){
@@ -51,5 +48,6 @@ public class CC {
          pc.setWeight(pc.getBaseWeight() + pc.getWeightGained());
          PlayController.updateBars();
     }
+    
 }
 

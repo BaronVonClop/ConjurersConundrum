@@ -201,4 +201,9 @@ public class Character {
          return weightToSend; 
     }
     
+    public double calcFullness(){
+        double belly = this.fullness/this.capacity;
+        return belly;
+    }
+    
 }

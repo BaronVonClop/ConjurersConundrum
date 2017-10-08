@@ -37,7 +37,7 @@ public class PlayController implements Initializable {
          //Populate the Order selection box.
          ordersBox.getItems().setAll("Rest", "Laze", "Quest");
          //Bind the bars to their updaters
-         fullnessBar.progressProperty().bind(PH.fullnessUpdater.divide(100d));
+         fullnessBar.progressProperty().bind(PH.fullnessUpdater);
          happinessBar.progressProperty().bind(PH.happinessUpdater.divide(100d));
          suspicionBar.progressProperty().bind(PH.suspicionUpdater.divide(100d));
          staminaBar.progressProperty().bind(PH.staminaUpdater.divide(100d));
@@ -69,18 +69,21 @@ public class PlayController implements Initializable {
          }
          CC.digest();
          CC.gainWeight();
-         System.out.println("Cal In Gut: " + CC.pc.getCaloriesInGut());
-         System.out.println("Cal Digested: " + CC.pc.getCaloriesDigested());
-         System.out.println("Weight Gained: " + CC.pc.getWeightGained());
-         System.out.println("Time: " + CC.pc.getTime());
-         System.out.println("Base Weight: " + CC.pc.getBaseWeight());
+         //Debug strings.
+//         System.out.println("Cal In Gut: " + CC.pc.getCaloriesInGut());
+//         System.out.println("Cal Digested: " + CC.pc.getCaloriesDigested());
+//         System.out.println("Weight Gained: " + CC.pc.getWeightGained());
+//         System.out.println("Time: " + CC.pc.getTime());
+//         System.out.println("Base Weight: " + CC.pc.getBaseWeight());
          System.out.println("Capacity: " + CC.pc.getCapacity());
          System.out.println("Digestion Rate: " + CC.pc.getDigestionRate());
+         System.out.println("Fullness: " + CC.pc.getFullness());
+         System.out.println("Calc Fullness: " + CC.pc.calcFullness());
     }
     
     //Update the Updaters which Update the bars. yes really.
     public static void updateBars(){
-        PH.fullnessUpdater.set(CC.pc.getFullness());
+        PH.fullnessUpdater.set(CC.pc.calcFullness());
         PH.happinessUpdater.set(CC.pc.getHappiness());
         PH.staminaUpdater.set(CC.pc.getStamina());
         PH.suspicionUpdater.set(CC.pc.getSuspicion());
